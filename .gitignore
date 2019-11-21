@@ -40,3 +40,4 @@ dist/
 /models
 
 !/datasets
+!/datasets/*.jpg
