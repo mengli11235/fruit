@@ -54,6 +54,11 @@ def default_argument_parser():
     """
     parser = argparse.ArgumentParser(description="Detectron2 Training")
     parser.add_argument("--config-file", default="", metavar="FILE", help="path to config file")
+    parser.add_argument("--model-weight", default="", metavar="FILE", help="path to weight file")
+    parser.add_argument("--train-images", default="", metavar="FOLDER", help="path to train images")
+    parser.add_argument("--test-images", default="", metavar="FOLDER", help="path to test images")
+    parser.add_argument("--train-annotations", default="", metavar="FILE", help="path to train annotations")
+    parser.add_argument("--test-annotations", default="", metavar="FILE", help="path to test annotations")
     parser.add_argument(
         "--resume",
         action="store_true",

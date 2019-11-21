@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
-
+###IF NO SUDO AUTHOR:
+###echo "PYTHONPATH=$HOME/.local/lib/python3.6/site-packages" >> .bashrc
+###source .bashrc
+###python -u setup.py build develop --prefix=~/.local
 import glob
 import os
 from setuptools import find_packages, setup
@@ -84,3 +87,4 @@ setup(
     ext_modules=get_extensions(),
     cmdclass={"build_ext": torch.utils.cpp_extension.BuildExtension},
 )
+
