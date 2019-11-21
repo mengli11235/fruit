@@ -40,4 +40,5 @@ dist/
 /models
 
 !/datasets
-!/datasets/*.jpg
+!/datasets/test_images_coco/*.jpg
+!/datasets/train_images_coco/*.jpg
