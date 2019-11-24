@@ -1,7 +1,7 @@
 ## How to run fruit project
 
 * To install, See [INSTALL.md](INSTALL.md).
-Note: You might need to run #python -u setup.py build develop --prefix=~/.local instead of #python setup.py build develop
+Note: You might need to run """python -u setup.py build develop --prefix=~/.local""" instead of """python setup.py build develop""" if you are not using a sudo account
 
 <img src=".github/Detectron2-Logo-Horz.svg" width="300" >
 
