@@ -5,6 +5,7 @@ Note: You might need to run `python -u setup.py build develop --prefix=~/.local`
 
 * Download pre-trained weights
 [Faster R-CNN](https://dl.fbaipublicfiles.com/detectron2/COCO-Detection/faster_rcnn_R_50_FPN_3x/137849458/model_final_280758.pkl), rename it as faster_rcnn_R_50_FPN_3x.pkl
+
 [Mask R-CNN](https://dl.fbaipublicfiles.com/detectron2/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl), rename it as mask_rcnn_R_50_FPN_3x.pkl
 
 * Train the model
