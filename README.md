@@ -10,7 +10,7 @@ __Note__: You might need to run `python -u setup.py build develop --prefix=~/.lo
 [Mask R-CNN](https://dl.fbaipublicfiles.com/detectron2/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl), rename it as `mask_rcnn_R_50_FPN_3x.pkl`
 
 ### Train our model
-Faster R-CNN:
+Faster R-CNN with ROI-Align:
 
 `python -u tools/train_net.py --config-file configs/COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml --model-weight faster_rcnn_R_50_FPN_3x.pkl --train-annotations /absolute-path/datasets/annotations/annotations_train.json --train-images /absolute-path/datasets/train_images_coco`
 
@@ -23,7 +23,7 @@ Mask R-CNN:
 `python -u tools/train_net.py --config-file configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml --model-weight mask_rcnn_R_50_FPN_3x.pkl --train-annotations /absolute-path/datasets/annotations/annotations_train.json --train-images /absolute-path/datasets/train_images_coco`
 
 ### Test our model
-Faster R-CNN:
+Faster R-CNN with ROI-Align:
 
 `python -u tools/predict.py --config-file configs/COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml --test-annotations /absolute-path/datasets/annotations/annotations_test.json --test-images /absolute-path/datasets/test_images_coco`
 
