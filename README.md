@@ -1,7 +1,8 @@
 ## How to run fruit project
 
 To install, See [INSTALL.md](INSTALL.md).
-Note: You might need to run `python -u setup.py build develop --prefix=~/.local` instead of `python setup.py build develop` if you are not using a sudo account.
+
+__Note__: You might need to run `python -u setup.py build develop --prefix=~/.local` instead of `python setup.py build develop` if you are not using a sudo account.
 
 ### Download pre-trained weights
 [Faster R-CNN](https://dl.fbaipublicfiles.com/detectron2/COCO-Detection/faster_rcnn_R_50_FPN_3x/137849458/model_final_280758.pkl), rename it as `faster_rcnn_R_50_FPN_3x.pkl`
