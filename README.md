@@ -4,8 +4,8 @@
 Note: You might need to run `python -u setup.py build develop --prefix=~/.local` instead of `python setup.py build develop` if you are not using a sudo account.
 
 * Download pre-trained weights
-Faster R-CNN(https://dl.fbaipublicfiles.com/detectron2/COCO-Detection/faster_rcnn_R_50_FPN_3x/137849458/model_final_280758.pkl), rename it as faster_rcnn_R_50_FPN_3x.pkl
-Mask R-CNN(https://dl.fbaipublicfiles.com/detectron2/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl), rename it as mask_rcnn_R_50_FPN_3x.pkl
+[Faster R-CNN](https://dl.fbaipublicfiles.com/detectron2/COCO-Detection/faster_rcnn_R_50_FPN_3x/137849458/model_final_280758.pkl), rename it as faster_rcnn_R_50_FPN_3x.pkl
+[Mask R-CNN](https://dl.fbaipublicfiles.com/detectron2/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl), rename it as mask_rcnn_R_50_FPN_3x.pkl
 
 * Train the model
 Faster R-CNN `python -u tools/train_net.py --config-file configs/COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml --model-weight faster_rcnn_R_50_FPN_3x.pkl --train-annotations /absolute-path/datasets/annotations/annotations_train.json --train-images /absolute-path/datasets/train_images_coco`
