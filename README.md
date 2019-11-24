@@ -1,6 +1,6 @@
 ## How to run fruit project
 
-* To install, See [INSTALL.md](INSTALL.md).
+To install, See [INSTALL.md](INSTALL.md).
 Note: You might need to run `python -u setup.py build develop --prefix=~/.local` instead of `python setup.py build develop` if you are not using a sudo account.
 
 ### Download pre-trained weights
@@ -34,7 +34,7 @@ Mask R-CNN:
 
 `python -u tools/predict.py --config-file configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml --test-annotations /absolute-path/datasets/annotations/annotations_test.json --test-images /absolute-path/datasets/test_images_coco`
 
-Note: Please use absolute path for the paths of annotation files and image directories. The dataloader is called from the built installation and changing sys path in the code raises path errors from other functions.
+__Note__: Please use absolute path for the paths of annotation files and image directories. The dataloader is called from the built installation and changing sys path in the code raises path errors from other functions.
 
 <img src=".github/Detectron2-Logo-Horz.svg" width="300" >
 
