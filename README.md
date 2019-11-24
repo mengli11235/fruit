@@ -1,3 +1,8 @@
+## How to run fruit project
+
+* To install, See [INSTALL.md](INSTALL.md).
+Note: You might need to run #python -u setup.py build develop --prefix=~/.local instead of #python setup.py build develop
+
 <img src=".github/Detectron2-Logo-Horz.svg" width="300" >
 
 Detectron2 is Facebook AI Research's next generation software system
