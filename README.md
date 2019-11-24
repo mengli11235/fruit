@@ -1,7 +1,27 @@
 ## How to run fruit project
 
 * To install, See [INSTALL.md](INSTALL.md).
-Note: You might need to run '''python -u setup.py build develop --prefix=~/.local''' instead of '''python setup.py build develop''' if you are not using a sudo account
+Note: You might need to run `python -u setup.py build develop --prefix=~/.local` instead of `python setup.py build develop` if you are not using a sudo account.
+
+* Download pre-trained weights
+Faster R-CNN(https://dl.fbaipublicfiles.com/detectron2/COCO-Detection/faster_rcnn_R_50_FPN_3x/137849458/model_final_280758.pkl), rename it as faster_rcnn_R_50_FPN_3x.pkl
+Mask R-CNN(https://dl.fbaipublicfiles.com/detectron2/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl), rename it as mask_rcnn_R_50_FPN_3x.pkl
+
+* Train the model
+Faster R-CNN `python -u tools/train_net.py --config-file configs/COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml --model-weight faster_rcnn_R_50_FPN_3x.pkl --train-annotations /absolute-path/datasets/annotations/annotations_train.json --train-images /absolute-path/datasets/train_images_coco`
+
+Faster R-CNN with ROI-Pooling `python -u tools/train_net.py --config-file configs/COCO-Detection/faster_rcnn_R_50_FPN_3x_roi_pooling.yaml --model-weight faster_rcnn_R_50_FPN_3x.pkl --train-annotations /absolute-path/datasets/annotations/annotations_train.json --train-images /absolute-path/datasets/train_images_coco`
+
+Mask R-CNN `python -u tools/train_net.py --config-file configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml --model-weight mask_rcnn_R_50_FPN_3x.pkl --train-annotations /absolute-path/datasets/annotations/annotations_train.json --train-images /absolute-path/datasets/train_images_coco`
+
+* Test the model
+Faster R-CNN `python -u tools/predict.py --config-file configs/COCO-Detection/faster_rcnn_R_50_FPN_3x.yaml --test-annotations /absolute-path/datasets/annotations/annotations_test.json --test-images /absolute-path/datasets/test_images_coco`
+
+Faster R-CNN with ROI-Pooling `python -u tools/predict.py --config-file configs/COCO-Detection/faster_rcnn_R_50_FPN_3x_roi_pooling.yaml --test-annotations /absolute-path/datasets/annotations/annotations_test.json --test-images /absolute-path/datasets/test_images_coco`
+
+Mask R-CNN `python -u tools/predict.py --config-file configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml --test-annotations /absolute-path/datasets/annotations/annotations_test.json --test-images /absolute-path/datasets/test_images_coco`
+
+Note: Please use absolute path for the paths of annotation files and image directories. The dataloader is called from the built installation and changing sys path in the code raises path errors from other functions.
 
 <img src=".github/Detectron2-Logo-Horz.svg" width="300" >
 
