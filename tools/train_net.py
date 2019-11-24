@@ -118,11 +118,11 @@ def setup(args):
     cfg.DATASETS.TRAIN = ("fruit_train",)
     cfg.DATASETS.TEST = ()   # no metrics implemented for this dataset
     cfg.DATALOADER.NUM_WORKERS = 4
-    cfg.MODEL.WEIGHTS = args.model_weight#"/data/s2651513/fruit/detectron2/configs/mask_rcnn_R_50_FPN_3x.pkl"  # initialize from model zoo
+    cfg.MODEL.WEIGHTS = args.model_weight # initialize from model zoo
     cfg.SOLVER.IMS_PER_BATCH = 2
     cfg.SOLVER.BASE_LR = 0.00025
-    cfg.SOLVER.MAX_ITER = 30000    # 3000 iterations seems good enough
-    cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 128   # faster
+    cfg.SOLVER.MAX_ITER = 30000    # 30000 iterations seems good enough
+    cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 128  
     cfg.MODEL.ROI_HEADS.NUM_CLASSES = 5  # not including bbackground
     cfg.merge_from_list(args.opts)
     cfg.OUTPUT_DIR = os.path.join(cfg.OUTPUT_DIR, args.config_file)
@@ -161,10 +161,8 @@ def main(args):
 
 if __name__ == "__main__":
     args = default_argument_parser().parse_args()
-#    register_coco_instances("fruit_train", {}, "/data/s2651513/fruit/dataset_AgrilFruit_forCounting/exp1/annotations/annotations_train.json", "/data/s2651513/fruit/dataset_AgrilFruit_forCounting/exp1/train_images_coco")
-#    register_coco_instances("fruit_test", {}, "/data/s2651513/fruit/dataset_AgrilFruit_forCounting/exp1/annotations/annotations_test.json", "/data/s2651513/fruit/dataset_AgrilFruit_forCounting/exp1/test_images_coco")
+    # register our fruit train dataset
     register_coco_instances("fruit_train", {}, args.train_annotations, args.train_images)
-    register_coco_instances("fruit_test", {}, args.test_annotations, args.test_images)
     print("Command Line Args:", args)
     launch(
         main,

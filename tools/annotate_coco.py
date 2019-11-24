@@ -7,40 +7,18 @@ from xml.dom.minidom import parse
 import xml.dom.minidom
  
 if __name__ == '__main__':
-
     path = '../dataset_AgrilFruit_forCounting/exp1/'     
+    # fruit classes
     folders = ['lemon', 'custardapple', 'apple', 'pear', 'persimmon']
     train_dataset = {'categories':[], 'images':[], 'annotations':[]}
     test_dataset = {'categories':[], 'images':[], 'annotations':[]}
+    # create coco categories
     for i, j in enumerate(folders, 0):
       train_dataset['categories'].append({'id': i, 'name': j, 'supercategory': 'mark'})
       test_dataset['categories'].append({'id': i, 'name': j, 'supercategory': 'mark'})
-#    # get file names of images
-#    for f in folders:
-#        train_images.append([j for i, j in enumerate(os.listdir(os.path.join(path, 'train_images', f)))])
-#        test_images.append([j for i, j in enumerate(os.listdir(os.path.join(path, 'test_images', f)))])
-#    # get image size
-#    for i, folder in enumerate(folders):
-#        fruit = train_images[i]
-#        for j,f in enumerate(fruit):
-#            j = i*300+j
-#            im = cv2.imread(os.path.join(path, 'train_images', folder, f))
-#            height, width, _ = im.shape
-#            dataset['images'].append({'file_name': f,
-#                                      'id': j,
-#                                      'width': width,
-#                                      'height': height})
-#        fruit = test_images[i]
-#        for j,f in enumerate(fruit):
-#            j = i*300+240+j
-#            im = cv2.imread(os.path.join(path, 'test_images', folder, f))
-#            height, width, _ = im.shape
-#            dataset['images'].append({'file_name': f,
-#                                      'id': j,
-#                                      'width': width,
-#                                      'height': height})
-    
+    # train annotations
     for i, f in enumerate(os.listdir(os.path.join(path, 'train_xml'))):
+        # read through xml tree
         DOMTree = xml.dom.minidom.parse(os.path.join(path, 'train_xml', f))
         collection = DOMTree.documentElement
         filename = collection.getElementsByTagName("filename")[0]
@@ -74,7 +52,7 @@ if __name__ == '__main__':
                                               'image_id': i,
                                               'iscrowd': 0,
                                               'segmentation': [[x1, y1, x2, y1, x2, y2, x1, y2]]})
-
+    #test annotations
     for i, f in enumerate(os.listdir(os.path.join(path, 'test_xml'))):
         DOMTree = xml.dom.minidom.parse(os.path.join(path, 'test_xml', f))
         collection = DOMTree.documentElement
@@ -109,7 +87,7 @@ if __name__ == '__main__':
                                               'image_id': i,
                                               'iscrowd': 0,
                                               'segmentation': [[x1, y1, x2, y1, x2, y2, x1, y2]]})
-                                              
+    # save the json file                                          
     save_folder = os.path.join(path, 'annotations')
     if not os.path.exists(save_folder):
       os.makedirs(save_folder)
